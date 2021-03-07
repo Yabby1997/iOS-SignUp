@@ -87,6 +87,7 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iqw-eu-6Je">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="iqw-eu-6Je" secondAttribute="height" multiplier="1:1" id="RId-st-p40"/>
                                         </constraints>
@@ -138,8 +139,7 @@
                                         <rect key="frame" x="206.5" y="0.0" width="187.5" height="30"/>
                                         <state key="normal" title="다음"/>
                                         <connections>
-                                            <action selector="nextButtonTapped:" destination="Vay-x9-yXD" eventType="touchUpInside" id="tDE-ac-Eyx"/>
-                                            <segue destination="GCj-de-8ur" kind="presentation" id="9we-Yz-4aE"/>
+                                            <segue destination="GCj-de-8ur" kind="presentation" id="MDP-eY-yqW"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -173,10 +173,11 @@
                         <outlet property="idField" destination="8Iz-2g-lBj" id="6l1-M5-YJw"/>
                         <outlet property="passwordCheckField" destination="D6a-13-qm1" id="hS7-oU-LYo"/>
                         <outlet property="passwordField" destination="bWT-ax-4Nk" id="jgX-Vy-C9b"/>
-                        <outlet property="pofileImageView" destination="iqw-eu-6Je" id="RLm-pt-1z9"/>
+                        <outlet property="profileImageView" destination="iqw-eu-6Je" id="tSC-cT-WZK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jKQ-OK-JUB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="2pW-Kw-7qU"/>
             </objects>
             <point key="canvasLocation" x="1676.8115942028987" y="137.94642857142856"/>
         </scene>
@@ -198,10 +199,10 @@
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="137.94642857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Personal Info View Controller-->
         <scene sceneID="Q79-pZ-BcB">
             <objects>
-                <viewController id="GCj-de-8ur" sceneMemberID="viewController">
+                <viewController id="GCj-de-8ur" customClass="PersonalInfoViewController" customModule="MySignUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AvX-wr-g6t">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -277,6 +278,7 @@
                             <constraint firstItem="De0-IF-GiQ" firstAttribute="trailing" secondItem="d9n-sh-Y0C" secondAttribute="trailing" constant="10" id="mmw-va-rEl"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="b2S-3R-bJ1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nhs-Ce-E6V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
