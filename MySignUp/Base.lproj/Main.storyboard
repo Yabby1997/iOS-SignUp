@@ -109,7 +109,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="LL2-na-XEO"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password Check" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D6a-13-qm1">
                                                 <rect key="frame" x="0.0" y="80" width="276" height="30"/>
@@ -117,7 +117,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="kd5-Vy-lwu"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -171,6 +171,7 @@
                     <connections>
                         <outlet property="bioTextView" destination="d6U-x3-vNa" id="CSh-Xg-L0z"/>
                         <outlet property="idField" destination="8Iz-2g-lBj" id="6l1-M5-YJw"/>
+                        <outlet property="nextButton" destination="Jcb-Yi-tpz" id="JjB-hp-k3w"/>
                         <outlet property="passwordCheckField" destination="D6a-13-qm1" id="hS7-oU-LYo"/>
                         <outlet property="passwordField" destination="bWT-ax-4Nk" id="jgX-Vy-C9b"/>
                         <outlet property="profileImageView" destination="iqw-eu-6Je" id="tSC-cT-WZK"/>

@@ -7,13 +7,14 @@
 
 import UIKit
 
-class SignupViewController: ViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SignupViewController: ViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var idField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var passwordCheckField: UITextField!
     @IBOutlet weak var bioTextView: UITextView!
+    @IBOutlet weak var nextButton: UIButton!
     
     lazy var imagePicker: UIImagePickerController = {
         let picker: UIImagePickerController = UIImagePickerController()
@@ -26,9 +27,31 @@ class SignupViewController: ViewController, UIImagePickerControllerDelegate, UIN
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        nextButton.isEnabled = false
+        idField.delegate = self
+        passwordField.delegate = self
+        passwordCheckField.delegate = self
+        bioTextView.delegate = self
+        
         let profileImageTappGesture = UITapGestureRecognizer(target: self, action: #selector(self.imagePickerTapped(_:)))
         profileImageView.isUserInteractionEnabled = true
         profileImageView.addGestureRecognizer(profileImageTappGesture)
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if self.idField.text != "" && passwordField.text != "" && passwordField.text == passwordCheckField.text && self.bioTextView.text != "" {
+            self.nextButton.isEnabled = true
+        } else {
+            self.nextButton.isEnabled = false
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if self.idField.text != "" && passwordField.text != "" && passwordField.text == passwordCheckField.text && self.bioTextView.text != "" {
+            self.nextButton.isEnabled = true
+        } else {
+            self.nextButton.isEnabled = false
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
