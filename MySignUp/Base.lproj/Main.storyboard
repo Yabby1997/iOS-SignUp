@@ -74,10 +74,10 @@
             </objects>
             <point key="canvasLocation" x="944.92753623188412" y="137.94642857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Signup View Controller-->
         <scene sceneID="VyH-oh-Ibm">
             <objects>
-                <viewController id="Vay-x9-yXD" sceneMemberID="viewController">
+                <viewController id="Vay-x9-yXD" customClass="SignupViewController" customModule="MySignUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kYe-cI-7DI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,11 +130,15 @@
                                         <state key="normal" title="취소">
                                             <color key="titleColor" systemColor="systemRedColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="cancelButtonTapped:" destination="Vay-x9-yXD" eventType="touchUpInside" id="VT6-Ue-jrx"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jcb-Yi-tpz">
                                         <rect key="frame" x="206.5" y="0.0" width="187.5" height="30"/>
                                         <state key="normal" title="다음"/>
                                         <connections>
+                                            <action selector="nextButtonTapped:" destination="Vay-x9-yXD" eventType="touchUpInside" id="tDE-ac-Eyx"/>
                                             <segue destination="GCj-de-8ur" kind="presentation" id="9we-Yz-4aE"/>
                                         </connections>
                                     </button>
@@ -164,6 +168,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="enX-rf-I3b"/>
+                    <connections>
+                        <outlet property="bioTextView" destination="d6U-x3-vNa" id="CSh-Xg-L0z"/>
+                        <outlet property="idField" destination="8Iz-2g-lBj" id="6l1-M5-YJw"/>
+                        <outlet property="passwordCheckField" destination="D6a-13-qm1" id="hS7-oU-LYo"/>
+                        <outlet property="passwordField" destination="bWT-ax-4Nk" id="jgX-Vy-C9b"/>
+                        <outlet property="pofileImageView" destination="iqw-eu-6Je" id="RLm-pt-1z9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jKQ-OK-JUB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -206,15 +217,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="XOu-yJ-AKq">
-                                <rect key="frame" x="-10" y="115" width="414" height="216"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="XOu-yJ-AKq">
+                                <rect key="frame" x="0.0" y="115" width="414" height="216"/>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="생년월일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NN-RC-AHO">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="j8k-je-S0E">
                                 <rect key="frame" x="10" y="84.5" width="394" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="생년월일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NN-RC-AHO">
+                                        <rect key="frame" x="0.0" y="0.0" width="182" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="November 28, 1997" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Vz-VP-Nmx">
+                                        <rect key="frame" x="212" y="0.0" width="182" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="d9n-sh-Y0C">
                                 <rect key="frame" x="10" y="341" width="394" height="30"/>
                                 <subviews>
@@ -238,21 +260,21 @@
                         <viewLayoutGuide key="safeArea" id="De0-IF-GiQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="j8k-je-S0E" firstAttribute="top" secondItem="HTl-au-D7Q" secondAttribute="bottom" constant="10" id="Cmk-gG-4uf"/>
                             <constraint firstItem="HTl-au-D7Q" firstAttribute="top" secondItem="8x4-zQ-20P" secondAttribute="bottom" constant="10" id="G4R-tP-O0P"/>
                             <constraint firstItem="De0-IF-GiQ" firstAttribute="trailing" secondItem="8x4-zQ-20P" secondAttribute="trailing" constant="10" id="GPQ-dS-6AY"/>
                             <constraint firstItem="8x4-zQ-20P" firstAttribute="top" secondItem="De0-IF-GiQ" secondAttribute="top" constant="10" id="KQh-QC-eC1"/>
                             <constraint firstItem="De0-IF-GiQ" firstAttribute="trailing" secondItem="HTl-au-D7Q" secondAttribute="trailing" constant="10" id="Mkm-MV-Dum"/>
                             <constraint firstItem="8x4-zQ-20P" firstAttribute="leading" secondItem="De0-IF-GiQ" secondAttribute="leading" constant="10" id="OHv-fu-LKr"/>
-                            <constraint firstItem="XOu-yJ-AKq" firstAttribute="top" secondItem="2NN-RC-AHO" secondAttribute="bottom" constant="10" id="Obb-5f-z7r"/>
-                            <constraint firstItem="De0-IF-GiQ" firstAttribute="trailing" secondItem="2NN-RC-AHO" secondAttribute="trailing" constant="10" id="STX-pB-2Qh"/>
-                            <constraint firstItem="De0-IF-GiQ" firstAttribute="trailing" secondItem="XOu-yJ-AKq" secondAttribute="trailing" constant="10" id="WjY-Wt-L3o"/>
-                            <constraint firstItem="XOu-yJ-AKq" firstAttribute="leading" secondItem="AvX-wr-g6t" secondAttribute="leading" constant="-10" id="X3I-kz-xBz"/>
+                            <constraint firstItem="De0-IF-GiQ" firstAttribute="trailing" secondItem="j8k-je-S0E" secondAttribute="trailing" constant="10" id="Opf-hX-hZA"/>
+                            <constraint firstItem="De0-IF-GiQ" firstAttribute="trailing" secondItem="XOu-yJ-AKq" secondAttribute="trailing" id="WjY-Wt-L3o"/>
+                            <constraint firstItem="XOu-yJ-AKq" firstAttribute="leading" secondItem="AvX-wr-g6t" secondAttribute="leading" id="X3I-kz-xBz"/>
                             <constraint firstItem="d9n-sh-Y0C" firstAttribute="top" secondItem="XOu-yJ-AKq" secondAttribute="bottom" constant="10" id="YMQ-uP-dPD"/>
                             <constraint firstItem="d9n-sh-Y0C" firstAttribute="leading" secondItem="De0-IF-GiQ" secondAttribute="leading" constant="10" id="Zja-fy-uqW"/>
-                            <constraint firstItem="2NN-RC-AHO" firstAttribute="top" secondItem="HTl-au-D7Q" secondAttribute="bottom" constant="10" id="bp8-m9-8Fx"/>
+                            <constraint firstItem="j8k-je-S0E" firstAttribute="leading" secondItem="De0-IF-GiQ" secondAttribute="leading" constant="10" id="dFv-bq-e2M"/>
                             <constraint firstItem="HTl-au-D7Q" firstAttribute="leading" secondItem="De0-IF-GiQ" secondAttribute="leading" constant="10" id="hlW-H9-Tih"/>
+                            <constraint firstItem="XOu-yJ-AKq" firstAttribute="top" secondItem="j8k-je-S0E" secondAttribute="bottom" constant="10" id="iYc-eV-hbf"/>
                             <constraint firstItem="De0-IF-GiQ" firstAttribute="trailing" secondItem="d9n-sh-Y0C" secondAttribute="trailing" constant="10" id="mmw-va-rEl"/>
-                            <constraint firstItem="2NN-RC-AHO" firstAttribute="leading" secondItem="De0-IF-GiQ" secondAttribute="leading" constant="10" id="vcc-Sc-UIc"/>
                         </constraints>
                     </view>
                 </viewController>
