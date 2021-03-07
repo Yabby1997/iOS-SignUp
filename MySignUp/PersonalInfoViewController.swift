@@ -22,6 +22,7 @@ class PersonalInfoViewController: ViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.signinButton.isEnabled = false
         phoneNumberField.delegate = self
     }
@@ -46,12 +47,23 @@ class PersonalInfoViewController: ViewController, UITextFieldDelegate {
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
+        UserInformation.sharedUserInformation.id = nil
+        UserInformation.sharedUserInformation.password = nil
+        UserInformation.sharedUserInformation.bio = nil
+        UserInformation.sharedUserInformation.phoneNumber = nil
+        UserInformation.sharedUserInformation.birthday = nil
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func prevButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        UserInformation.sharedUserInformation.phoneNumber = nil
+        UserInformation.sharedUserInformation.birthday = nil
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func signupButtonTapped(_ sender: Any) {
+        UserInformation.sharedUserInformation.phoneNumber = phoneNumberField.text
+        UserInformation.sharedUserInformation.birthday = birthdayLabel.text
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }

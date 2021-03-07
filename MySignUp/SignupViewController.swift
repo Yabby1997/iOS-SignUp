@@ -10,9 +10,9 @@ import UIKit
 class SignupViewController: ViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
 
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var idField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var passwordCheckField: UITextField!
+    @IBOutlet weak var signUpIDField: UITextField!
+    @IBOutlet weak var signUpPWField: UITextField!
+    @IBOutlet weak var doubleCheckPWField: UITextField!
     @IBOutlet weak var bioTextView: UITextView!
     @IBOutlet weak var nextButton: UIButton!
     
@@ -33,14 +33,14 @@ class SignupViewController: ViewController, UIImagePickerControllerDelegate, UIN
         
         nextButton.isEnabled = false
         
-        idField.delegate = self
-        passwordField.delegate = self
-        passwordCheckField.delegate = self
+        signUpIDField.delegate = self
+        signUpPWField.delegate = self
+        doubleCheckPWField.delegate = self
         bioTextView.delegate = self
     }
     
     func inputValidation() {
-        if idField.text != "" && passwordField.text != "" && passwordField.text == passwordCheckField.text && bioTextView.text != "" {
+        if signUpIDField.text != "" && signUpPWField.text != "" && signUpPWField.text == doubleCheckPWField.text && bioTextView.text != "" {
             nextButton.isEnabled = true
         } else {
             nextButton.isEnabled = false
@@ -65,7 +65,16 @@ class SignupViewController: ViewController, UIImagePickerControllerDelegate, UIN
         self.present(self.imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func nextButtonTapped(_ sender: Any) {
+        UserInformation.sharedUserInformation.id = signUpIDField.text
+        UserInformation.sharedUserInformation.password = signUpPWField.text
+        UserInformation.sharedUserInformation.bio = bioTextView.text
+    }
+    
     @IBAction func cancelButtonTapped(_ sender: Any) {
+        UserInformation.sharedUserInformation.id = nil
+        UserInformation.sharedUserInformation.password = nil
+        UserInformation.sharedUserInformation.bio = nil
         self.navigationController?.popViewController(animated: true)
     }
 }
