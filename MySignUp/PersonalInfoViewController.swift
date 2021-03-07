@@ -8,22 +8,34 @@
 import UIKit
 
 class PersonalInfoViewController: ViewController {
-
+    
+    @IBOutlet weak var phoneNumberField: UITextField!
+    @IBOutlet weak var birthdayLabel: UILabel!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func datePicked(_ sender: Any) {
+        let date = self.datePicker.date
+        let dateString = dateFormatter.string(from: date)
+        self.birthdayLabel.text = dateString
     }
-    */
-
+    
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func prevButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func signupButtonTapped(_ sender: Any) {
+    }
 }

@@ -26,16 +26,17 @@ class SignupViewController: ViewController, UIImagePickerControllerDelegate, UIN
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let profileImageTappGesture = UITapGestureRecognizer(target: self, action: #selector(self.imagePickerTapped(_:)))
+        
+        profileImageView.isUserInteractionEnabled = true
+        profileImageView.addGestureRecognizer(profileImageTappGesture)
         
         nextButton.isEnabled = false
+        
         idField.delegate = self
         passwordField.delegate = self
         passwordCheckField.delegate = self
         bioTextView.delegate = self
-        
-        let profileImageTappGesture = UITapGestureRecognizer(target: self, action: #selector(self.imagePickerTapped(_:)))
-        profileImageView.isUserInteractionEnabled = true
-        profileImageView.addGestureRecognizer(profileImageTappGesture)
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
