@@ -39,20 +39,20 @@ class SignupViewController: ViewController, UIImagePickerControllerDelegate, UIN
         bioTextView.delegate = self
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if self.idField.text != "" && passwordField.text != "" && passwordField.text == passwordCheckField.text && self.bioTextView.text != "" {
-            self.nextButton.isEnabled = true
+    func inputValidation() {
+        if idField.text != "" && passwordField.text != "" && passwordField.text == passwordCheckField.text && bioTextView.text != "" {
+            nextButton.isEnabled = true
         } else {
-            self.nextButton.isEnabled = false
+            nextButton.isEnabled = false
         }
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if self.idField.text != "" && passwordField.text != "" && passwordField.text == passwordCheckField.text && self.bioTextView.text != "" {
-            self.nextButton.isEnabled = true
-        } else {
-            self.nextButton.isEnabled = false
-        }
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        inputValidation()
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        inputValidation()
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
