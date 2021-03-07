@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8JJ-il-oJl">
-                                <rect key="frame" x="20" y="193" width="374" height="78"/>
+                                <rect key="frame" x="20" y="384" width="374" height="78"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uih-AS-EIG">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -31,8 +31,15 @@
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swift" translatesAutoresizingMaskIntoConstraints="NO" id="Uaj-31-mNQ">
+                                <rect key="frame" x="79" y="108" width="256" height="256"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="EMj-yb-ejp"/>
+                                    <constraint firstAttribute="width" secondItem="Uaj-31-mNQ" secondAttribute="height" multiplier="1:1" id="Z0H-9x-5u6"/>
+                                </constraints>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="TXz-jh-BSv">
-                                <rect key="frame" x="144" y="291" width="126" height="30"/>
+                                <rect key="frame" x="144" y="482" width="126" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1h-7Q-9j7">
                                         <rect key="frame" x="0.0" y="0.0" width="47" height="30"/>
@@ -49,23 +56,17 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yagom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJb-9W-KdL">
-                                <rect key="frame" x="133.5" y="108" width="147" height="65"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="50"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="EJb-9W-KdL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Dj7-Yi-Tot"/>
+                            <constraint firstItem="8JJ-il-oJl" firstAttribute="top" secondItem="Uaj-31-mNQ" secondAttribute="bottom" constant="20" id="0EB-yg-bz9"/>
+                            <constraint firstItem="Uaj-31-mNQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FME-tG-JST"/>
                             <constraint firstItem="TXz-jh-BSv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GE6-dG-X8J"/>
                             <constraint firstItem="TXz-jh-BSv" firstAttribute="top" secondItem="8JJ-il-oJl" secondAttribute="bottom" constant="20" id="N7c-Zy-2ng"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8JJ-il-oJl" secondAttribute="trailing" constant="20" id="O7H-1Y-AwS"/>
                             <constraint firstItem="8JJ-il-oJl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Rzq-RG-MB6"/>
-                            <constraint firstItem="EJb-9W-KdL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="TIE-Vh-r4e"/>
-                            <constraint firstItem="8JJ-il-oJl" firstAttribute="top" secondItem="EJb-9W-KdL" secondAttribute="bottom" constant="20" id="ZYm-Z0-8CP"/>
+                            <constraint firstItem="Uaj-31-mNQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Sqv-uA-Tk4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Rlv-FA-P7H"/>
@@ -306,6 +307,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="swift" width="512" height="512"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
